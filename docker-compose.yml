@@ -16,14 +16,24 @@ services:
       context: ./server
     ports:
       - "3000:3000"
-    # Optional: If your backend needs a database, you would add it here
-    # depends_on:
-    #   - db
+    depends_on:
+      - db
+
+  db:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - db_data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: user
+      MONGO_INITDB_ROOT_PASSWORD: password
 
 # Optional: Define networks or volumes here if needed
 # networks:
 #   default:
 #     driver: bridge
-# volumes:
-#   db_data:
+volumes:
+  db_data:
 
