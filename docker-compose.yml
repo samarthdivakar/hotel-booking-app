@@ -1,0 +1,29 @@
+
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./client
+    ports:
+      - "5173:5173"
+    # Optional: Add depends_on if frontend needs backend to be up first
+    # depends_on:
+    #   - backend
+
+  backend:
+    build:
+      context: ./server
+    ports:
+      - "3000:3000"
+    # Optional: If your backend needs a database, you would add it here
+    # depends_on:
+    #   - db
+
+# Optional: Define networks or volumes here if needed
+# networks:
+#   default:
+#     driver: bridge
+# volumes:
+#   db_data:
+
