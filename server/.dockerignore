@@ -2,3 +2,6 @@ node_modules
 .env
 build
 dist
+.git
+.vscode
+npm-debug.log
